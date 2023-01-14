@@ -31,6 +31,7 @@
     position: fixed;
     display: flex;
     align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100vw;
@@ -83,16 +84,29 @@
     height: 44px;
 }
 
-.bigMode{
-    position: fixed;
-    width: 78vw;
-    height: 78vh;
-    top: 11vh;
-    object-fit: scale-down;
+/*.bigMode{*/
+/*    position: fixed;*/
+/*    width: 78vw;*/
+/*    height: 78vh;*/
+/*    top: 11vh;*/
+/*    object-fit: scale-down;*/
+/*    z-index: 500;*/
+/*}*/
+
+.alert_content{
     z-index: 500;
 }
 
+.modalWindow{
+    display: block;
+    position: fixed;
+    width: 333px;
+    height: 666px;
+    z-index: 600;
+    background-color: crimson;
+    border-radius: 8px;
 
+}
 
 
 

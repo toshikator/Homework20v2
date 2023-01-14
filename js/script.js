@@ -73,12 +73,13 @@
 
             } else if(event.pageX > (window.innerWidth - 300)){
                 let nextId = imgDB.indexOf(zoomedImg.getAttribute('src')) + 1;
-                if (nextId => imgDB.length ) nextId = 0;
+                if (nextId >= imgDB.length ) nextId = 0;
                 zoomedImg.setAttribute('src',imgDB[nextId]);
 
             }
         } else {
             console.log('else');
+            alertZone.innerHTML = '';
             alertZone.classList.add('hyde');
             divToShowIMG.classList.add('hyde');
         }
@@ -86,8 +87,13 @@
     render();
 
     function useModal(){
+        alertZone.classList.remove('hyde');
+        // divToShowIMG.classList.remove('hyde');
+        const modalWindow = document.createElement('div');
+        modalWindow.classList.add('modalWindow');
 
 
+        alertZone.appendChild(modalWindow);
         addNewElementToDatabase(newItem);
     }
     function addNewElementToDatabase(itemToAdd){
