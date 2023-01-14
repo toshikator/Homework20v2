@@ -19,6 +19,17 @@
     const divToShowIMG = document.querySelector('#Content');
     const zoomedImg = document.querySelector('.imgContent');
 
+    const modalWindow = document.createElement('div');
+    modalWindow.classList.add('modalWindow');
+    const imgSrc = document.createElement('input');
+    imgSrc.setAttribute('type','url');
+    imgSrc.classList.add('imgSrcInput');
+    imgSrc.setAttribute('placeholder', "Add Url For New Image");
+    const btnApply = document.createElement('button');
+    btnApply.innerHTML = 'Done';
+    btnApply.setAttribute('id','btnApply');
+    btnApply.classList.add('btnApply');
+
     const render = () =>{
         listOfImages.innerHTML = '';
         const buttonToAddImage = document.createElement('button');
@@ -40,13 +51,18 @@
 
     document.addEventListener('click',(event)=>{
         // console.log(event);
-        console.log(event.target);
-        if (event.target.classList.contains('addImgBtn')){
+        // console.log(event.target);
+        if(event.target.getAttribute('id') === 'btnApply') {
+            addNewElementToDatabase(imgSrc.value);
+            imgSrc.value = '';
+        } else if (event.target.classList.contains('addImgBtn')) {
             useModal();
-        }
-
-        if (event.target.classList.contains(classForImages)) {
-            console.log('class for images');
+        } else if(event.target.getAttribute('type') === 'url') {
+            // alert('Must be really pretty!')
+            // const userNotification = document.createElement('span');
+            // userNotification.setAttribute('textContent', 'Must be really pretty');
+            // modalWindow.appendChild(userNotification);
+        }else if (event.target.classList.contains(classForImages)) {
             //remove hyde class
             alertZone.classList.remove('hyde');
             divToShowIMG.classList.remove('hyde');
@@ -84,19 +100,49 @@
             divToShowIMG.classList.add('hyde');
         }
     });
+    loadDatabaseFromLocalStorage();
     render();
 
     function useModal(){
         alertZone.classList.remove('hyde');
+        divToShowIMG.classList.add('hyde');
         // divToShowIMG.classList.remove('hyde');
-        const modalWindow = document.createElement('div');
-        modalWindow.classList.add('modalWindow');
 
 
         alertZone.appendChild(modalWindow);
-        addNewElementToDatabase(newItem);
+        modalWindow.appendChild(imgSrc);
+        modalWindow.appendChild(btnApply);
+
+
     }
     function addNewElementToDatabase(itemToAdd){
+        console.log(itemToAdd);
+        const image = new Image();
+        image.src = itemToAdd;
+        image.addEventListener('load', () => {
+            imgDB.push(itemToAdd);
+            render();
+            alertZone.classList.add('hyde');
+            saveDatabaseToLocalstorage();
+        });
+        image.addEventListener('error', () => {
+            alert('incorrect link, check it please');
+        });
+    }
+    function saveDatabaseToLocalstorage() {
+        localStorage.setItem('imgDB',JSON.stringify(imgDB));
+    }
+    function loadDatabaseFromLocalStorage() {
 
+        if (localStorage.key('imgDB')) {
+            const temp = JSON.parse(localStorage.getItem('imgDB'));
+            temp.forEach((value) => {
+                if (imgDB.includes(value)) {
+
+                } else {
+                    imgDB.push(value);
+                }
+            });
+        }
     }
 })()

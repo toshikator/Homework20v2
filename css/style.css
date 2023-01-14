@@ -82,6 +82,40 @@
     left: 2px;
     width: 88px;
     height: 44px;
+    /*z-index: 100;*/
+}
+
+
+.modalWindow{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    width: 333px;
+    height: 133px;
+    z-index: 600;
+    background-color: darkolivegreen;
+    border-radius: 8px;
+}
+
+.imgSrcInput{
+    display: block;
+    /*position: absolute;*/
+    /*flex-grow: 1;*/
+    flex-basis: 100%;
+    width: 90%;
+    border-radius: 8px;
+    font-weight: 900;
+}
+
+.btnApply{
+    display: block;
+    width: 90%;
+    flex-basis: 100%;
+    border-radius: 8px;
+    font-weight: 900;
 }
 
 /*.bigMode{*/
@@ -97,16 +131,7 @@
     z-index: 500;
 }
 
-.modalWindow{
-    display: block;
-    position: fixed;
-    width: 333px;
-    height: 666px;
-    z-index: 600;
-    background-color: crimson;
-    border-radius: 8px;
 
-}
 
 
 
