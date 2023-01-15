@@ -16,7 +16,7 @@
 
     const listOfImages = document.querySelector('#imgList');
     const alertZone = document.querySelector('#alertZone');
-    const divToShowIMG = document.querySelector('#Content');
+    const divToShowIMG = document.querySelector('#content');
     const zoomedImg = document.querySelector('.imgContent');
 
     const modalWindow = document.createElement('div');
@@ -63,9 +63,9 @@
             // userNotification.setAttribute('textContent', 'Must be really pretty');
             // modalWindow.appendChild(userNotification);
         }else if (event.target.classList.contains(classForImages)) {
-            //remove hyde class
-            alertZone.classList.remove('hyde');
-            divToShowIMG.classList.remove('hyde');
+            //remove hide class
+            alertZone.classList.remove('hide');
+            divToShowIMG.classList.remove('hide');
             //buttons
             const leftButton = document.createElement("img");
             const rightButton = document.createElement("img");
@@ -96,17 +96,17 @@
         } else {
             console.log('else');
             alertZone.innerHTML = '';
-            alertZone.classList.add('hyde');
-            divToShowIMG.classList.add('hyde');
+            alertZone.classList.add('hide');
+            divToShowIMG.classList.add('hide');
         }
     });
     loadDatabaseFromLocalStorage();
     render();
 
     function useModal(){
-        alertZone.classList.remove('hyde');
-        divToShowIMG.classList.add('hyde');
-        // divToShowIMG.classList.remove('hyde');
+        alertZone.classList.remove('hide');
+        divToShowIMG.classList.add('hide');
+        // divToShowIMG.classList.remove('hide');
 
 
         alertZone.appendChild(modalWindow);
@@ -122,7 +122,7 @@
         image.addEventListener('load', () => {
             imgDB.push(itemToAdd);
             render();
-            alertZone.classList.add('hyde');
+            alertZone.classList.add('hide');
             saveDatabaseToLocalstorage();
         });
         image.addEventListener('error', () => {
