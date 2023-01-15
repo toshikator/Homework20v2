@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="738f83cd-e06a-4e71-9179-5ec75cd4397b" name="Changes" comment="all ready">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +17,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2KBzF7KOMIRKYDyw89jNm8uwfif" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -64,6 +64,7 @@
       <workItem from="1673699300011" duration="4047000" />
       <workItem from="1673703438144" duration="11080000" />
       <workItem from="1673784472614" duration="210000" />
+      <workItem from="1673786683903" duration="322000" />
     </task>
     <task id="LOCAL-00001" summary="start to build">
       <created>1673566707999</created>

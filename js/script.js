@@ -38,10 +38,10 @@
         document.querySelector('body').appendChild(buttonToAddImage);
 
         imgDB.forEach((element)=> {
-            newImg = document.createElement('img');
+            let newImg = document.createElement('img');
             newImg.src = element;
 
-            newImg.setAttribute('databaseId',imgDB.indexOf(element));
+            newImg.setAttribute('databaseId',imgDB.indexOf(element).toString());
             newImg.classList.add('imagesLine');
             listOfImages.appendChild(newImg);
         });
@@ -134,7 +134,7 @@
     }
     function loadDatabaseFromLocalStorage() {
 
-        if (localStorage.key('imgDB')) {
+        if (localStorage.getItem('imgDB')) {
             const temp = JSON.parse(localStorage.getItem('imgDB'));
             temp.forEach((value) => {
                 if (imgDB.includes(value)) {
